@@ -8,11 +8,11 @@ import {IconAdjustments} from "@tabler/icons-react";
 export const Layout = ({children}: PropsWithChildren) => {
 
     const [mobileOpened, {toggle: toggleMobile}] = useDisclosure(false);
-    const [desktopOpened, {toggle: toggleDesktop}] = useDisclosure(false);
+    // const [_, {toggle: toggleDesktop}] = useDisclosure(false);
 
     const toggleNavbar = () => {
         toggleMobile()
-        toggleDesktop()
+        // toggleDesktop()
     }
 
     return (
