@@ -8,5 +8,5 @@ export default defineConfig({
         TanStackRouterVite(),
         react()
     ],
-    base: 'badnet-tournaments-browser'
+    base: '/badnet-tournaments-browser'
 })

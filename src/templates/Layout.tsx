@@ -23,7 +23,7 @@ export const Layout = ({children}: PropsWithChildren) => {
             navbar={{
                 width: {lg: 400},
                 breakpoint: "md",
-                collapsed: {mobile: !mobileOpened, desktop: !desktopOpened}
+                collapsed: {mobile: !mobileOpened, desktop: false}
             }}
             padding="lg"
         >

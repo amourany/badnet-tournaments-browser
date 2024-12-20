@@ -4,7 +4,8 @@ import {createRouter, RouterProvider} from "@tanstack/react-router";
 import {routeTree} from './routeTree.gen';
 import {TournamentFiltersProvider} from "./providers/TournamentFiltersProvider.tsx";
 
-const router = createRouter({routeTree})
+const basePath = import.meta.env['BASE_URL']
+const router = createRouter({basepath:basePath, routeTree})
 
 function App() {
     return <TournamentFiltersProvider>
