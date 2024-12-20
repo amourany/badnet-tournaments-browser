@@ -1,0 +1,17 @@
+.filters {
+    margin: 0 auto;
+
+    @media(max-width: $mantine-breakpoint-sm) {
+        margin: 0 10px;
+    }
+
+    @media(min-width: $mantine-breakpoint-sm) {
+        margin: 0 20%;
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

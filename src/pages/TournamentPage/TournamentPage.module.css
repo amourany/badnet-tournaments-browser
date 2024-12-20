@@ -1,0 +1,10 @@
+.stack {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.pageTitle {
+    @media (max-width: $mantine-breakpoint-md) {
+        font-size: 1.2rem;
+    }
+}

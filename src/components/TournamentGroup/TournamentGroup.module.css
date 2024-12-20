@@ -1,0 +1,12 @@
+.flex {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.groupTitle {
+    @media (max-width: $mantine-breakpoint-md) {
+        font-size: 1.1rem;
+    }
+}

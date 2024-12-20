@@ -1,0 +1,89 @@
+.container {
+    width: 450px;
+    flex: 1 0 auto;
+
+    @media (max-width: $mantine-breakpoint-md) {
+        width: 100%;
+    }
+}
+
+.section {
+    margin: 0.2rem;
+
+    @media (max-width: $mantine-breakpoint-md) {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: $mantine-breakpoint-md) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.singleLine > label, .line > label, .registrationLine > div {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+
+    @media (max-width: $mantine-breakpoint-md) {
+        font-size: 0.8rem;
+    }
+}
+
+.singleLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.ageCategories {
+    @media (max-width: $mantine-breakpoint-md) {
+       max-width: 70%;
+        flex: 1 0 auto;
+    }
+}
+
+.disciplines {
+    @media (max-width: $mantine-breakpoint-md) {
+        flex: 0 0 auto;
+    }
+}
+
+.registrationLine {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+
+    @media (max-width: $mantine-breakpoint-md) {
+        font-size: 0.8rem;
+    }
+}
+
+.registrationIcon {
+    flex-shrink: 0;
+}
+
+.cardTitle {
+
+    @media (min-width: $mantine-breakpoint-lg) {
+        max-height: 2rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    @media (max-width: $mantine-breakpoint-md) {
+        font-size: 1rem;
+    }
+}
