@@ -1,8 +1,7 @@
 import {useState} from "react";
 import {Select} from "@mantine/core";
 import {useFilters} from "../../../providers/TournamentFiltersProvider.tsx";
-
-const regions = ['AURA', 'BOFC', 'BRET', 'CVDL', 'GEST', 'HFRA', 'LIFB', 'NORM', 'NAQU', 'OCCI', 'PDLL', 'PACA', 'GUA', 'GUY', 'MAR', 'NCAL', 'REU']
+import {REGIONS} from "../../../effects/regions.actions.ts";
 
 export const RegionFilter = () => {
     const {filters, setFilters} = useFilters()
@@ -13,11 +12,14 @@ export const RegionFilter = () => {
         setFilters({...filters, region: value ?? ''})
     }
 
+    const options = REGIONS.map(region => ({value: region.value, label: `${region.label} - ${region.value}`}))
+        .sort((a, b) => a.label.localeCompare(b.label))
+
     return <Select
         label="Filtrer par ligue"
         value={value}
         onChange={onChange}
-        data={regions}
+        data={options}
         clearable
         allowDeselect
     />
