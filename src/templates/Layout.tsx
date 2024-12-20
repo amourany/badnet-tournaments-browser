@@ -1,9 +1,9 @@
-import {ActionIcon, AppShell} from "@mantine/core";
+import {AppShell} from "@mantine/core";
 import {TournamentFilters} from "../components/TournamentFilters/TournamentFilters.tsx";
 import styles from "./Layout.module.css";
 import {PropsWithChildren} from "react";
 import {useDisclosure} from "@mantine/hooks";
-import {IconAdjustments} from "@tabler/icons-react";
+import {Header} from "../components/Header/Header.tsx";
 
 export const Layout = ({children}: PropsWithChildren) => {
 
@@ -27,15 +27,11 @@ export const Layout = ({children}: PropsWithChildren) => {
             }}
             padding="lg"
         >
-            <AppShell.Header>Badnet Tournament Opening Date</AppShell.Header>
+            <AppShell.Header><Header toggleNavbar={toggleNavbar} navbarOpened={mobileOpened}/></AppShell.Header>
             <AppShell.Navbar className={styles.navbar}>
-                <TournamentFilters onToggleNavbar={toggleNavbar}/>
+                <TournamentFilters/>
             </AppShell.Navbar>
             <AppShell.Main>
-                <ActionIcon onClick={toggleNavbar} hiddenFrom="lg" variant="transparent" color="black" size="xl"
-                            aria-label="Settings">
-                    <IconAdjustments/>
-                </ActionIcon>
                 {children}
             </AppShell.Main>
         </AppShell>
