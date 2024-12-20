@@ -15,7 +15,9 @@ export const SortModeFilter = () => {
     const [toggleValue, toggle] = useToggle([REGISTRATION_DATE, TOURNAMENT_DATE])
 
     useEffect(() => {
-        setFilters({...filters, sortMode: toggleValue as SortMode})
+        if(filters.sortMode !== toggleValue) {
+            setFilters({...filters, sortMode: toggleValue as SortMode})
+        }
     }, [toggleValue])
 
     return <div>

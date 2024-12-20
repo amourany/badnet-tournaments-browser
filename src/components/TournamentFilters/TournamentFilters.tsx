@@ -5,12 +5,16 @@ import {HideOpenedTournamentsFilter} from "./HideOpenedTournamentsFilter/HideOpe
 import {HideClosedTournamentsFilter} from "./HideClosedTournamentsFilter/HideClosedTournamentsFilter.tsx";
 import {ScrollArea, Stack, UnstyledButton} from "@mantine/core";
 import styles from "./TournamentFilters.module.css";
-import {useFilters} from "../../providers/TournamentFiltersProvider.tsx";
+import {Filters, useFilters} from "../../providers/TournamentFiltersProvider.tsx";
 
+export type FiltersProps = {
+    filters: Filters,
+    onFiltersChange: (filters: Filters) => void
+}
 
 export const TournamentFilters = () => {
 
-    const {isDefaultFilters, resetFilters} = useFilters();
+    const {filters, setFilters, isDefaultFilters, resetFilters} = useFilters();
 
     return <ScrollArea type="scroll">
         <Stack className={styles.filters}>
@@ -20,7 +24,7 @@ export const TournamentFilters = () => {
                         filtres</UnstyledButton> : null}
             </div>
             <TextFilter/>
-            <RegionFilter/>
+            <RegionFilter filters={filters} onFiltersChange={setFilters}/>
             <SortModeFilter/>
             <HideOpenedTournamentsFilter/>
             <HideClosedTournamentsFilter/>

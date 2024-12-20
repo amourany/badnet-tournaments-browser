@@ -6,6 +6,7 @@ import {useDidUpdate, useInViewport} from "@mantine/hooks";
 import {TOURNAMENT_DATE, useFilters} from "../../providers/TournamentFiltersProvider.tsx";
 import {TournamentByRegistrationView} from "./TournamentByRegistrationView.tsx";
 import {TournamentByDateView} from "./TournamentByDateView.tsx";
+import {FiltersOverview} from "../../components/FiltersOverview/FiltersOverview.tsx";
 
 export const TournamentPage = () => {
 
@@ -29,6 +30,7 @@ export const TournamentPage = () => {
                 root: styles.stack,
             }}
         >
+            <FiltersOverview/>
             {filters.sortMode === TOURNAMENT_DATE ?
                 <TournamentByDateView tournaments={tournaments ?? []}/> :
                 <TournamentByRegistrationView tournaments={tournaments ?? []}/>}

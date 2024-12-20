@@ -10,7 +10,9 @@ export const TextFilter = () => {
     const [debounced] = useDebouncedValue(value, 500);
 
     useEffect(() => {
-        setFilters({...filters, search: debounced})
+        if(filters.search !== debounced) {
+            setFilters({...filters, search: debounced})
+        }
     }, [debounced])
 
     return <div>
