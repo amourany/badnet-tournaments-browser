@@ -27,7 +27,7 @@ export const Layout = ({children}: PropsWithChildren) => {
             }}
             padding="lg"
         >
-            <AppShell.Header><Header toggleNavbar={toggleNavbar} navbarOpened={mobileOpened}/></AppShell.Header>
+            <AppShell.Header className={styles.header}><Header toggleNavbar={toggleNavbar} navbarOpened={mobileOpened}/></AppShell.Header>
             <AppShell.Navbar className={styles.navbar}>
                 <TournamentFilters/>
             </AppShell.Navbar>
