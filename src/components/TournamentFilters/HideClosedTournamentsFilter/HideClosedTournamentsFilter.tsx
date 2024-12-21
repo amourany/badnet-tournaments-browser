@@ -1,19 +1,14 @@
 import {Switch} from "@mantine/core";
-import {useState} from "react";
-import {useFilters} from "../../../providers/TournamentFiltersProvider.tsx";
+import {FiltersProps} from "../TournamentFilters.tsx";
 
-export const HideClosedTournamentsFilter = () => {
-
-    const {filters, setFilters} = useFilters()
-    const [checked, setChecked] = useState(filters.hideClosedTournaments)
+export const HideClosedTournamentsFilter = ({filters, onFiltersChange}: FiltersProps) => {
 
     const onChange = (value: boolean) => {
-        setChecked(value)
-        setFilters({...filters, hideClosedTournaments: value})
+        onFiltersChange({...filters, hideClosedTournaments: value})
     }
 
     return <Switch
         onChange={(event) => onChange(event.currentTarget.checked)}
-        checked={checked}
+        checked={filters.hideClosedTournaments}
         label="Masquer les tournois déjà fermés"/>
 }

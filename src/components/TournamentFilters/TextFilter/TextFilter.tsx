@@ -1,19 +1,22 @@
 import {CloseButton, TextInput} from "@mantine/core";
 import {useEffect, useState} from "react";
 import {useDebouncedValue} from "@mantine/hooks";
-import {useFilters} from "../../../providers/TournamentFiltersProvider.tsx";
+import {FiltersProps} from "../TournamentFilters.tsx";
 
-export const TextFilter = () => {
+export const TextFilter = ({filters, onFiltersChange}: FiltersProps) => {
 
-    const {filters, setFilters} = useFilters()
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState(filters.search);
     const [debounced] = useDebouncedValue(value, 500);
 
     useEffect(() => {
         if(filters.search !== debounced) {
-            setFilters({...filters, search: debounced})
+            onFiltersChange({...filters, search: debounced})
         }
     }, [debounced])
+
+    useEffect(() => {
+        setValue(filters.search)
+    }, [filters.search])
 
     return <div>
         <TextInput label="Filtrer par nom de tournoi"

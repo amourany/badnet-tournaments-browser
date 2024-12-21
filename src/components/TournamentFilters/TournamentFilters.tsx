@@ -23,11 +23,11 @@ export const TournamentFilters = () => {
                     <UnstyledButton component="a" onClick={resetFilters}>Réinitialiser les
                         filtres</UnstyledButton> : null}
             </div>
-            <TextFilter/>
+            <TextFilter filters={filters} onFiltersChange={setFilters}/>
             <RegionFilter filters={filters} onFiltersChange={setFilters}/>
-            <SortModeFilter/>
-            <HideOpenedTournamentsFilter/>
-            <HideClosedTournamentsFilter/>
+            <SortModeFilter filters={filters} onFiltersChange={setFilters}/>
+            <HideOpenedTournamentsFilter filters={filters} onFiltersChange={setFilters}/>
+            <HideClosedTournamentsFilter filters={filters} onFiltersChange={setFilters}/>
         </Stack>
     </ScrollArea>
 }
