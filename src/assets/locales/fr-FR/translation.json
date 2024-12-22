@@ -1,3 +1,37 @@
 {
+  "TITLE": "Badnet Browser",
+  "FILTERS": {
+    "OVERVIEW": {
+      "ACTIVE_FILTERS": "Filtres actifs :",
+      "REGION_PILL": "Ligue :",
+      "SEARCH_PILL": "Recherche :"
+    },
+    "HIDE_CLOSED_TOURNAMENTS": "Masquer les tournois déjà fermés",
+    "HIDE_OPENED_TOURNAMENTS": "Masquer les tournois déjà ouverts",
+    "REGION": "Filtrer par ligue",
+    "SORT_MODE": {
+      "LABEL": "Afficher les tournois par :",
+      "TOURNAMENT_DATE": "Date de tournoi",
+      "REGISTRATION_DATE": "Date d'ouverture des inscriptions"
+    },
+    "SEARCH": "Filtrer par nom de tournoi",
+    "CLEAR": "Réinitialiser les filtres"
+  },
+  "TOURNAMENT_CARD": {
+    "DATE": {
+      "SINGLE_DAY": "Le {{val}}",
+      "MULTIPLE_DAYS": "Les {{val}}"
+    },
+    "REGISTRATIONS": {
+      "OPENED": "Les inscriptions sont déjà ouvertes",
+      "CLOSED": "Les inscriptions sont fermées",
+      "NOT_OPENED": "Ouverture des inscriptions le"
+    }
+  },
+  "REGISTRATION_VIEW": {
+    "TITLE": "Date d'ouverture des inscriptions",
+    "OPENED_ACCORDION": "Tournois déjà ouverts",
+    "CLOSED_ACCORDION": "Tournois déjà fermés"
+  },
   "intlDate": "{{val, datetime}}"
 }

@@ -6,6 +6,7 @@ import {Accordion} from "@mantine/core";
 import {useFilters} from "../../providers/TournamentFiltersProvider.tsx";
 import {useDateFormat} from "../../hooks/useFormatDate.ts";
 import styles from "./TournamentPage.module.css";
+import {useTranslation} from "react-i18next";
 
 const TOURNAMENTS_OPENED = 'OPENED'
 const TOURNAMENTS_CLOSED = 'CLOSED'
@@ -30,6 +31,7 @@ const groupTournaments = (tournaments: Tournament[]) => {
 
 export const TournamentByRegistrationView = ({tournaments}: TournamentViewProps) => {
 
+    const {t} = useTranslation('', {keyPrefix: 'REGISTRATION_VIEW'})
     const {formatDateTime} = useDateFormat()
     const {filters} = useFilters()
     const {hideOpenedTournaments, hideClosedTournaments} = filters
@@ -51,17 +53,17 @@ export const TournamentByRegistrationView = ({tournaments}: TournamentViewProps)
     }
 
     return <>
-        <h1 className={styles.pageTitle}>Date d'ouverture des inscriptions</h1>
+        <h1 className={styles.pageTitle}>{t('TITLE')}</h1>
         {otherTournaments.map(renderTournamentGroup)}
         <Accordion variant="separated" transitionDuration={500}>
-            {hideOpenedTournaments ? undefined : <Accordion.Item value="Tournois déjà ouverts" >
-                <Accordion.Control><h3>Tournois déjà ouverts</h3></Accordion.Control>
+            {hideOpenedTournaments ? undefined : <Accordion.Item value={t('OPENED_ACCORDION')}>
+                <Accordion.Control><h3>{t('OPENED_ACCORDION')}</h3></Accordion.Control>
                 <Accordion.Panel>
                     {openedTournaments.map(renderTournamentGroupSortedByDate)}
                 </Accordion.Panel>
             </Accordion.Item>}
-            {hideClosedTournaments ? undefined : <Accordion.Item value="Tournois déjà fermés" >
-                <Accordion.Control><h3>Tournois déjà fermés</h3></Accordion.Control>
+            {hideClosedTournaments ? undefined : <Accordion.Item value={t('CLOSED_ACCORDION')}>
+                <Accordion.Control><h3>{t('CLOSED_ACCORDION')}</h3></Accordion.Control>
                 <Accordion.Panel>
                     {closedTournaments.map(renderTournamentGroupSortedByDate)}
                 </Accordion.Panel>

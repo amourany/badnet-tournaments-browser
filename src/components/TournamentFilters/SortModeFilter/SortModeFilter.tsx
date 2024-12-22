@@ -3,8 +3,10 @@ import {useEffect} from "react";
 import {SegmentedControl, Text, useMantineTheme} from "@mantine/core";
 import {REGISTRATION_DATE, SortMode, TOURNAMENT_DATE} from "../../../providers/TournamentFiltersProvider.tsx";
 import {FiltersProps} from "../TournamentFilters.tsx";
+import {useTranslation} from "react-i18next";
 
 export const SortModeFilter = ({filters, onFiltersChange}: FiltersProps) => {
+    const {t} = useTranslation('', {keyPrefix: 'FILTERS.SORT_MODE'})
     const theme = useMantineTheme();
     const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
     const [toggleValue, toggle] = useToggle([REGISTRATION_DATE, TOURNAMENT_DATE])
@@ -16,11 +18,11 @@ export const SortModeFilter = ({filters, onFiltersChange}: FiltersProps) => {
     }, [toggleValue])
 
     return <div>
-        <Text>Afficher les tournois par :</Text>
+        <Text>{t('LABEL')}</Text>
         <SegmentedControl
             data={[
-                {label: 'Date de tournoi', value: TOURNAMENT_DATE},
-                {label: `Date d'ouverture des inscriptions`, value: REGISTRATION_DATE},
+                {label: t('TOURNAMENT_DATE'), value: TOURNAMENT_DATE},
+                {label: t('REGISTRATION_DATE'), value: REGISTRATION_DATE},
             ]}
             onChange={() => toggle()}
             value={toggleValue}

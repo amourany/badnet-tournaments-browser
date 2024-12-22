@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import {IconCalendarMonth, IconCheckbox, IconMapPin, IconSquareX, IconStopwatch} from "@tabler/icons-react";
 import {Tournament} from "../../effects/badnet/tournament.types.ts";
 import {useDateFormat} from "../../hooks/useFormatDate.ts";
+import {useTranslation} from "react-i18next";
 
 export type TournamentCardProps = {
     tournament: Tournament
@@ -12,11 +13,12 @@ export type TournamentCardProps = {
 export const TournamentCard = ({tournament}: TournamentCardProps) => {
 
     const {formatDate, formatDateTimeWithDay} = useDateFormat()
+    const {t} = useTranslation('', {keyPrefix: 'TOURNAMENT_CARD'})
 
     const firstDay = dayjs.unix(tournament.firstDay)
     const lastDay = dayjs.unix(tournament.lastDay)
     const lastDayLabel = formatDate(lastDay.toDate())
-    const dateLabel = firstDay.isSame(lastDay, 'day') ? `Le ${lastDayLabel}` : `Les ${firstDay.date()}-${lastDayLabel}`
+    const dateLabel = firstDay.isSame(lastDay, 'day') ? t("DATE.SINGLE_DAY", {val: lastDayLabel}) : t("DATE.MULTIPLE_DAYS", {val: `${firstDay.date()}-${lastDayLabel}`})
 
     const registrationOpeningDate = dayjs.unix(tournament.openline)
     const registrationClosingDate = dayjs.unix(tournament.truedeadline)
@@ -42,9 +44,10 @@ export const TournamentCard = ({tournament}: TournamentCardProps) => {
                 <label><IconCalendarMonth size={18}/>{dateLabel}</label>
             </div>
             <div className={styles.registrationLine}>
-            { areRegistrationsClosed ? <div><IconSquareX size={18}/><label>Les inscriptions sont fermées</label></div>
-                : areRegistrationsOpen ? <div><IconCheckbox size={18}/><label>Les inscriptions sont déjà ouvertes</label></div>
-                    : <div><IconStopwatch size={18} className={styles.registrationIcon}/><label>Ouverture des inscriptions le <b>{registrationDateLabel}</b></label></div>}
+                {areRegistrationsClosed ? <div><IconSquareX size={18}/><label>{t('REGISTRATIONS.CLOSED')}</label></div>
+                    : areRegistrationsOpen ? <div><IconCheckbox size={18}/><label>{t('REGISTRATIONS.OPENED')}</label></div>
+                        : <div><IconStopwatch size={18} className={styles.registrationIcon}/><label>{t('REGISTRATIONS.NOT_OPENED')}
+                            <b>{registrationDateLabel}</b></label></div>}
             </div>
         </Card.Section>
     </Card>

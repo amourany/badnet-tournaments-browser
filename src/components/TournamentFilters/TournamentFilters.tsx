@@ -6,6 +6,7 @@ import {HideClosedTournamentsFilter} from "./HideClosedTournamentsFilter/HideClo
 import {ScrollArea, Stack, UnstyledButton} from "@mantine/core";
 import styles from "./TournamentFilters.module.css";
 import {Filters, useFilters} from "../../providers/TournamentFiltersProvider.tsx";
+import {useTranslation} from "react-i18next";
 
 export type FiltersProps = {
     filters: Filters,
@@ -14,14 +15,14 @@ export type FiltersProps = {
 
 export const TournamentFilters = () => {
 
+    const {t} = useTranslation('', {keyPrefix: 'FILTERS'})
     const {filters, setFilters, isDefaultFilters, resetFilters} = useFilters();
 
     return <ScrollArea type="scroll">
         <Stack className={styles.filters}>
             <div className={styles.header}>
                 {!isDefaultFilters ?
-                    <UnstyledButton component="a" onClick={resetFilters}>Réinitialiser les
-                        filtres</UnstyledButton> : null}
+                    <UnstyledButton component="a" onClick={resetFilters}>{t('CLEAR')}</UnstyledButton> : null}
             </div>
             <TextFilter filters={filters} onFiltersChange={setFilters}/>
             <RegionFilter filters={filters} onFiltersChange={setFilters}/>
