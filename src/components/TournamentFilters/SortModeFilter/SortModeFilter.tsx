@@ -8,7 +8,7 @@ import {useTranslation} from "react-i18next";
 export const SortModeFilter = ({filters, onFiltersChange}: FiltersProps) => {
     const {t} = useTranslation('', {keyPrefix: 'FILTERS.SORT_MODE'})
     const theme = useMantineTheme();
-    const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
+    const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.lg})`);
     const [toggleValue, toggle] = useToggle([REGISTRATION_DATE, TOURNAMENT_DATE])
 
     useEffect(() => {

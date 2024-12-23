@@ -23,10 +23,13 @@ export const Header = ({navbarOpened, toggleNavbar}: HeaderProps) => {
             <Botminton className={styles.logo}/>
             <label>{t("TITLE")}</label>
         </div>
-        <ActionIcon component="a" href="https://github.com/amourany/badnet-tournaments-browser" variant="outline" color="black" target="_blank"
-                    aria-label="Github">
-            <IconBrandGithub/>
-        </ActionIcon>
-        <LanguageSwitcher/>
+        <div className={styles.icons}>
+            <ActionIcon component="a" href="https://github.com/amourany/badnet-tournaments-browser" variant="outline" color="black"
+                        target="_blank"
+                        aria-label="Github">
+                <IconBrandGithub/>
+            </ActionIcon>
+            <LanguageSwitcher/>
+        </div>
     </div>
 }

@@ -1,12 +1,13 @@
 .filters {
-    margin: 0 auto;
-
-    @media(max-width: $mantine-breakpoint-sm) {
         margin: 0 10px;
-    }
 
     @media(min-width: $mantine-breakpoint-sm) {
         margin: 0 20%;
+    }
+
+    @media(min-width: $mantine-breakpoint-md) {
+        margin: 0 auto;
+        padding: 0 10px;
     }
 }
 

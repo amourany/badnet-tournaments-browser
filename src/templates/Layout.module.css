@@ -1,9 +1,5 @@
 .navbar {
-    padding: 10px;
-
-    @media (max-width: $mantine-breakpoint-sm) {
         padding: 0;
-    }
 }
 
 .header {

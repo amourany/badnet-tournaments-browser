@@ -17,3 +17,8 @@
     width: rem(44px);
     height: rem(44px);
 }
+
+.icons {
+    display: flex;
+    gap: 0.5rem
+}

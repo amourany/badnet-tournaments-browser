@@ -6,7 +6,5 @@
 }
 
 .groupTitle {
-    @media (max-width: $mantine-breakpoint-md) {
         font-size: 1.1rem;
-    }
 }

@@ -4,7 +4,15 @@
 }
 
 .pageTitle {
-    @media (max-width: $mantine-breakpoint-md) {
+    @media(max-width: $mantine-breakpoint-md) {
         font-size: 1.2rem;
     }
+}
+
+.accordion {
+    margin: 0 -20px;
+}
+
+.accordionPanel {
+    background-color: var(--mantine-color-custom-0) !important;
 }

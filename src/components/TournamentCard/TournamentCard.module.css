@@ -1,31 +1,29 @@
 .container {
-    width: 450px;
+    width: 100%;
     flex: 1 0 auto;
 
-    @media (max-width: $mantine-breakpoint-md) {
-        width: 100%;
+    @media(min-width: $mantine-breakpoint-md) {
+        width: 400px;
     }
 }
 
 .section {
-    margin: 0.2rem;
-
-    @media (max-width: $mantine-breakpoint-md) {
-        padding: 0;
-        margin: 0;
-    }
+    /*margin: 0.2rem;*/
+    padding: 0;
+    margin: 0;
+    flex: 1 0 auto;
 }
 
 .line {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
     margin-bottom: 0.5rem;
 
-    @media (max-width: $mantine-breakpoint-md) {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
+    @media(min-width: $mantine-breakpoint-md) {
+        flex-direction: row;
+        justify-content: space-between;
         margin-bottom: 0.5rem;
     }
 }
@@ -35,9 +33,7 @@
     align-items: center;
     column-gap: 0.5rem;
 
-    @media (max-width: $mantine-breakpoint-md) {
-        font-size: 0.8rem;
-    }
+    font-size: 0.8rem;
 }
 
 .singleLine {
@@ -48,16 +44,12 @@
 }
 
 .ageCategories {
-    @media (max-width: $mantine-breakpoint-md) {
-       max-width: 70%;
-        flex: 1 0 auto;
-    }
+    max-width: 70%;
+    flex: 1 0 auto;
 }
 
 .disciplines {
-    @media (max-width: $mantine-breakpoint-md) {
-        flex: 0 0 auto;
-    }
+    flex: 0 0 auto;
 }
 
 .registrationLine {
@@ -65,9 +57,7 @@
     align-items: center;
     column-gap: 0.5rem;
 
-    @media (max-width: $mantine-breakpoint-md) {
-        font-size: 0.8rem;
-    }
+    font-size: 0.8rem;
 }
 
 .registrationIcon {
@@ -76,14 +66,13 @@
 
 .cardTitle {
 
-    @media (min-width: $mantine-breakpoint-lg) {
+    @media(min-width: $mantine-breakpoint-lg) {
         max-height: 2rem;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
     }
 
-    @media (max-width: $mantine-breakpoint-md) {
-        font-size: 1rem;
-    }
+    font-size: 1rem;
+    flex: 1 0 auto;
 }

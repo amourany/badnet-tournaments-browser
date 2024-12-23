@@ -3,6 +3,7 @@ import {TournamentGroup} from "../../components/TournamentGroup/TournamentGroup.
 import {useDateFormat} from "../../hooks/useFormatDate.ts";
 import dayjs from "dayjs";
 import {useTranslation} from "react-i18next";
+import styles from "./TournamentPage.module.css";
 
 export type TournamentViewProps = {
     tournaments: Tournament[]
@@ -26,16 +27,23 @@ const groupTournaments = (tournaments: Tournament[]) => {
 
 export const TournamentByDateView = ({tournaments}: TournamentViewProps) => {
 
-    const {t} = useTranslation('')
+    const {t} = useTranslation('', {keyPrefix: 'TOURNAMENT_VIEW'})
     const {formatDate} = useDateFormat()
 
     const groupedTournaments = groupTournaments(tournaments)
 
     const renderTournamentGroup = (tournamentGroup: [string,Tournament[]]) => {
         const [groupingKey, tournaments] = tournamentGroup
-        const date = t('TOURNAMENT_CARD.SINGLE_DAY', {val: formatDate(dayjs.unix(Number(groupingKey)).toDate())})
+        const date = t('SINGLE_DAY', {val: formatDate(dayjs.unix(Number(groupingKey)).toDate())})
         return <TournamentGroup key={groupingKey} groupTitle={date} tournaments={tournaments}/>;
     }
 
-    return <>{groupedTournaments.map(renderTournamentGroup)}</>
+    const renderEmptyState = () => {
+        return <div>{t('EMPTY_STATE')}</div>
+    }
+
+    return <>
+        <h1 className={styles.pageTitle}>{t('TITLE')}</h1>
+        {Object.keys(groupedTournaments).length === 0 ? renderEmptyState() : groupedTournaments.map(renderTournamentGroup)}
+    </>
 }

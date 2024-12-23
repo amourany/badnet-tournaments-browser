@@ -55,16 +55,16 @@ export const TournamentByRegistrationView = ({tournaments}: TournamentViewProps)
     return <>
         <h1 className={styles.pageTitle}>{t('TITLE')}</h1>
         {otherTournaments.map(renderTournamentGroup)}
-        <Accordion variant="separated" transitionDuration={500}>
+        <Accordion variant="separated" transitionDuration={500} className={styles.accordion}>
             {hideOpenedTournaments ? undefined : <Accordion.Item value={t('OPENED_ACCORDION')}>
                 <Accordion.Control><h3>{t('OPENED_ACCORDION')}</h3></Accordion.Control>
-                <Accordion.Panel>
+                <Accordion.Panel className={styles.accordionPanel}>
                     {openedTournaments.map(renderTournamentGroupSortedByDate)}
                 </Accordion.Panel>
             </Accordion.Item>}
             {hideClosedTournaments ? undefined : <Accordion.Item value={t('CLOSED_ACCORDION')}>
                 <Accordion.Control><h3>{t('CLOSED_ACCORDION')}</h3></Accordion.Control>
-                <Accordion.Panel>
+                <Accordion.Panel className={styles.accordionPanel}>
                     {closedTournaments.map(renderTournamentGroupSortedByDate)}
                 </Accordion.Panel>
             </Accordion.Item>}

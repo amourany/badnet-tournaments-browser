@@ -25,8 +25,13 @@
     "REGISTRATIONS": {
       "OPENED": "Les inscriptions sont déjà ouvertes",
       "CLOSED": "Les inscriptions sont fermées",
-      "NOT_OPENED": "Ouverture des inscriptions le"
+      "NOT_OPENED": "Ouverture des inscriptions le "
     }
+  },
+  "TOURNAMENT_VIEW": {
+    "TITLE": "Date des tournois",
+    "SINGLE_DAY": "Le {{val}}",
+    "EMPTY_STATE": "Pas de tournois"
   },
   "REGISTRATION_VIEW": {
     "TITLE": "Date d'ouverture des inscriptions",
