@@ -1,3 +1,42 @@
 {
+  "TITLE": "Badnet Browser",
+  "FILTERS": {
+    "OVERVIEW": {
+      "ACTIVE_FILTERS": "Active filters:",
+      "REGION_PILL": "League:",
+      "SEARCH_PILL": "Search:"
+    },
+    "HIDE_CLOSED_TOURNAMENTS": "Hide closed tournaments",
+    "HIDE_OPENED_TOURNAMENTS": "Hide opened tournaments",
+    "REGION": "Filter by league",
+    "SORT_MODE": {
+      "LABEL": "Display tournaments by:",
+      "TOURNAMENT_DATE": "Tournament date",
+      "REGISTRATION_DATE": "Registration opening date"
+    },
+    "SEARCH": "Filter by tournament name",
+    "CLEAR": "Reset filters"
+  },
+  "TOURNAMENT_CARD": {
+    "DATE": {
+      "SINGLE_DAY": "On {{val}}",
+      "MULTIPLE_DAYS": "On {{val}}"
+    },
+    "REGISTRATIONS": {
+      "OPENED": "Registrations are already open",
+      "CLOSED": "Registrations are closed",
+      "NOT_OPENED": "Registrations open on "
+    }
+  },
+  "TOURNAMENT_VIEW": {
+    "TITLE": "Tournament dates",
+    "SINGLE_DAY": "On {{val}}",
+    "EMPTY_STATE": "No tournaments"
+  },
+  "REGISTRATION_VIEW": {
+    "TITLE": "Registration opening dates",
+    "OPENED_ACCORDION": "Already opened tournaments",
+    "CLOSED_ACCORDION": "Already closed tournaments"
+  },
   "intlDate": "{{val, datetime}}"
 }
