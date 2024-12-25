@@ -5,7 +5,7 @@ import {IconLanguage} from "@tabler/icons-react";
 
 export const LanguageSwitcher = () => {
     const {i18n} = useTranslation();
-    const currentLanguage = i18n.resolvedLanguage;
+    // const currentLanguage = i18n.resolvedLanguage;
     const combobox = useCombobox({
         onDropdownClose: () => combobox.resetSelectedOption(),
     });
