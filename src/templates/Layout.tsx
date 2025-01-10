@@ -4,6 +4,8 @@ import styles from "./Layout.module.css";
 import {PropsWithChildren} from "react";
 import {useDisclosure, useMediaQuery} from "@mantine/hooks";
 import {Header} from "../components/Header/Header.tsx";
+import {TopLevelLoader} from "../components/Loaders/TopLevelLoader.tsx";
+import {useIsFetching} from "@tanstack/react-query";
 
 export const Layout = ({children}: PropsWithChildren) => {
 
@@ -12,6 +14,7 @@ export const Layout = ({children}: PropsWithChildren) => {
     const isDesktop = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`, true)
     const [mobileOpened, {toggle: toggleMobile}] = useDisclosure(false);
     const [desktopOpened, {toggle: toggleDesktop}] = useDisclosure(false);
+    const isFetching = useIsFetching()
 
     const toggleNavbar = () => {
         if (isMobile) {
@@ -35,7 +38,10 @@ export const Layout = ({children}: PropsWithChildren) => {
             }}
             padding="lg"
         >
-            <AppShell.Header className={styles.header}><Header toggleNavbar={toggleNavbar} navbarOpened={navbarOpened}/></AppShell.Header>
+            <AppShell.Header className={styles.header}>
+                <Header toggleNavbar={toggleNavbar} navbarOpened={navbarOpened}/>
+                {isFetching ? <TopLevelLoader/> : undefined}
+            </AppShell.Header>
             <AppShell.Navbar className={styles.navbar}>
                 <TournamentFilters/>
             </AppShell.Navbar>

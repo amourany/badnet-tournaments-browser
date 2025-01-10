@@ -1,7 +1,6 @@
 import {Stack} from "@mantine/core";
 import {useFetchTournaments} from "../../effects/badnet/tournaments.actions.ts";
 import styles from "./TournamentPage.module.css";
-import {TournamentGroupSkeleton} from "../../components/Skeletons/TournamentGroupSkeleton.tsx";
 import {useDidUpdate, useInViewport} from "@mantine/hooks";
 import {TOURNAMENT_DATE, useFilters} from "../../providers/TournamentFiltersProvider.tsx";
 import {TournamentByRegistrationView} from "./TournamentByRegistrationView.tsx";
@@ -35,7 +34,6 @@ export const TournamentPage = () => {
                 <TournamentByDateView tournaments={tournaments ?? []}/> :
                 <TournamentByRegistrationView tournaments={tournaments ?? []}/>}
         </Stack>
-        {isFetching ? <TournamentGroupSkeleton/> : undefined}
         <div ref={isBottomPageInViewportRef}/>
     </div>
 }
