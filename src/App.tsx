@@ -7,6 +7,10 @@ import {TournamentFiltersProvider} from "./providers/TournamentFiltersProvider.t
 const basePath = import.meta.env['BASE_URL']
 const router = createRouter({basepath:basePath, routeTree})
 
+window.addEventListener('vite:preloadError', () => {
+    window.location.reload()
+})
+
 function App() {
     return <TournamentFiltersProvider>
         <RouterProvider router={router}/>
