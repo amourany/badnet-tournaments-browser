@@ -1,11 +1,9 @@
 import {ActionIcon, Combobox, useCombobox} from "@mantine/core";
 import {useTranslation} from "react-i18next";
-import {supportedLanguages} from "../../i18n.ts";
 import {IconLanguage} from "@tabler/icons-react";
 
 export const LanguageSwitcher = () => {
     const {i18n} = useTranslation();
-    // const currentLanguage = i18n.resolvedLanguage;
     const combobox = useCombobox({
         onDropdownClose: () => combobox.resetSelectedOption(),
     });
@@ -15,19 +13,15 @@ export const LanguageSwitcher = () => {
         combobox.updateSelectedOptionIndex('active');
     };
 
-    const options = supportedLanguages.map((item) => (
-        <Combobox.Option value={item} key={item}>
-            {item}
-        </Combobox.Option>
-    ));
-
     return (
         <>
             <Combobox
                 store={combobox}
-                width={50}
+                width={100}
                 position="bottom-start"
                 withArrow
+                arrowPosition="center"
+                withinPortal={false}
                 onOptionSubmit={(val) => {
                     switchLanguage(val);
                     combobox.closeDropdown();
@@ -43,7 +37,10 @@ export const LanguageSwitcher = () => {
                 </Combobox.Target>
 
                 <Combobox.Dropdown>
-                    <Combobox.Options>{options}</Combobox.Options>
+                    <Combobox.Options>
+                        <Combobox.Option value="en">English</Combobox.Option>
+                        <Combobox.Option value="fr">Français</Combobox.Option>
+                    </Combobox.Options>
                 </Combobox.Dropdown>
             </Combobox>
         </>
