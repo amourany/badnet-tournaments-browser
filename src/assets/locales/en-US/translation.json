@@ -4,11 +4,13 @@
     "OVERVIEW": {
       "ACTIVE_FILTERS": "Active filters:",
       "REGION_PILL": "League:",
-      "SEARCH_PILL": "Search:"
+      "SEARCH_PILL": "Search:",
+      "AGE_CATEGORY_PILL": "Age:"
     },
     "HIDE_CLOSED_TOURNAMENTS": "Hide closed tournaments",
     "HIDE_OPENED_TOURNAMENTS": "Hide opened tournaments",
     "REGION": "Filter by league",
+    "AGE_CATEGORY": "Filter by age category",
     "SORT_MODE": {
       "LABEL": "Display tournaments by:",
       "TOURNAMENT_DATE": "Tournament date",

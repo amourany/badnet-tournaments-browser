@@ -7,6 +7,7 @@ import {ScrollArea, Stack, UnstyledButton} from "@mantine/core";
 import styles from "./TournamentFilters.module.css";
 import {Filters, useFilters} from "../../providers/TournamentFiltersProvider.tsx";
 import {useTranslation} from "react-i18next";
+import {AgeCategoryFilter} from "./AgeCategoryFilter/AgeCategoryFilter.tsx";
 
 export type FiltersProps = {
     filters: Filters,
@@ -26,6 +27,7 @@ export const TournamentFilters = () => {
             </div>
             <TextFilter filters={filters} onFiltersChange={setFilters}/>
             <RegionFilter filters={filters} onFiltersChange={setFilters}/>
+            <AgeCategoryFilter filters={filters} onFiltersChange={setFilters}/>
             <SortModeFilter filters={filters} onFiltersChange={setFilters}/>
             <HideOpenedTournamentsFilter filters={filters} onFiltersChange={setFilters}/>
             <HideClosedTournamentsFilter filters={filters} onFiltersChange={setFilters}/>

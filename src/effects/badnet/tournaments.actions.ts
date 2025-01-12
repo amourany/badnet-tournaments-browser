@@ -10,7 +10,7 @@ export const useFetchTournaments = () => {
     const {filters} = useFilters()
     return useInfiniteQuery({
         queryFn: ({pageParam}) => fetchTournaments(filters, pageParam),
-        queryKey: ['FETCH_TOURNAMENTS', filters.search, filters.region],
+        queryKey: ['FETCH_TOURNAMENTS', filters.search, filters.region, filters.ageCategories],
         getNextPageParam: (lastPage, _allPages, lastPageParam) => {
             if (lastPage.length === 0 || lastPage.length < pageLimit) {
                 return undefined
@@ -23,7 +23,6 @@ export const useFetchTournaments = () => {
 }
 
 const fetchTournaments = async ({search, region}: Filters, pageNumber: number): Promise<Tournament[]> => {
-    console.log("useFetchTournaments")
     const axiosResponse = await axios.get('https://api.badnet.org/api/search/events', {
         headers: {
             'x-badnet-token': 'fa78ec86c0f593fca186aee25036403f',
@@ -63,8 +62,15 @@ const filterTournaments = (tournaments: Tournament[], filters: Filters) => {
         .filter(filterPastTournaments)
         .filter(tournament => filterOpenTournaments(tournament, filters))
         .filter(tournament => filterClosedTournaments(tournament, filters))
+        .filter(filterByAgeCategory(filters))
 }
 
 const filterPastTournaments = (tournament: Tournament) => dayjs.unix(tournament.lastDay).isAfter(dayjs())
 const filterOpenTournaments = (tournament: Tournament, {hideOpenedTournaments}: Filters) => hideOpenedTournaments ? dayjs.unix(tournament.openline).isAfter(dayjs()) : true
 const filterClosedTournaments = (tournament: Tournament, {hideClosedTournaments}: Filters) => hideClosedTournaments ? dayjs.unix(tournament.truedeadline).isAfter(dayjs()) : true
+const filterByAgeCategory = (filters: Filters) => (tournament: Tournament) => {
+    if(filters.ageCategories.length === 0) {
+        return true
+    }
+    return filters.ageCategories.some(category => tournament.ageCategories.includes(category));
+}

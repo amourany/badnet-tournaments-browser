@@ -9,6 +9,7 @@ export type Filters = {
     sortMode: SortMode,
     search: string,
     region: string,
+    ageCategories: string[],
     hideOpenedTournaments: boolean,
     hideClosedTournaments: boolean,
 }
@@ -24,6 +25,7 @@ export const initialFilters: Filters = {
     sortMode: REGISTRATION_DATE,
     search: '',
     region: 'LIFB',
+    ageCategories: ["Sénior"],
     hideOpenedTournaments: false,
     hideClosedTournaments: true
 }

@@ -1,8 +1,7 @@
 import {Select} from "@mantine/core";
-import {REGIONS} from "../../../effects/regions.actions.ts";
 import {FiltersProps} from "../TournamentFilters.tsx";
 import {useTranslation} from "react-i18next";
-
+import { REGIONS } from "../../../effects/regions.types.ts";
 
 export const RegionFilter = ({filters, onFiltersChange}: FiltersProps) => {
 
