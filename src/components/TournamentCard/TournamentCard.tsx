@@ -18,7 +18,9 @@ export const TournamentCard = ({tournament}: TournamentCardProps) => {
     const firstDay = dayjs.unix(tournament.firstDay)
     const lastDay = dayjs.unix(tournament.lastDay)
     const lastDayLabel = formatDate(lastDay.toDate())
-    const dateLabel = firstDay.isSame(lastDay, 'day') ? t("DATE.SINGLE_DAY", {val: lastDayLabel}) : t("DATE.MULTIPLE_DAYS", {val: `${firstDay.date()}-${lastDayLabel}`})
+    const firstDayLabel = formatDate(firstDay.toDate())
+    const rangeLabel = firstDayLabel.replace(`${firstDay.get('date')}`, `${firstDay.get('date')}-${lastDay.get('date')}`)
+    const dateLabel = firstDay.isSame(lastDay, 'day') ? t("DATE.SINGLE_DAY", {val: lastDayLabel}) : t("DATE.MULTIPLE_DAYS", {val: rangeLabel})
 
     const registrationOpeningDate = dayjs.unix(tournament.openline)
     const registrationClosingDate = dayjs.unix(tournament.truedeadline)
