@@ -37,6 +37,7 @@
   },
   "REGISTRATION_VIEW": {
     "TITLE": "Registration opening dates",
+    "DATE": "{{val}}",
     "OPENED_ACCORDION": "Already opened tournaments",
     "CLOSED_ACCORDION": "Already closed tournaments"
   },

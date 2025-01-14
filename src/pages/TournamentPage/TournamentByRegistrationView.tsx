@@ -43,7 +43,7 @@ export const TournamentByRegistrationView = ({tournaments}: TournamentViewProps)
 
     const renderTournamentGroup = (tournamentGroup: [string,Tournament[]]) => {
         const [groupingKey, tournaments] = tournamentGroup
-        const date = `Le ${formatDateTime(dayjs.unix(Number(groupingKey)).toDate())}`
+        const date = t("DATE", {val: formatDateTime(dayjs.unix(Number(groupingKey)).toDate())})
         return <TournamentGroup key={groupingKey} groupTitle={date} tournaments={tournaments}/>;
     }
 
