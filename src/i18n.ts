@@ -1,8 +1,8 @@
 import * as i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import {initReactI18next} from 'react-i18next';
-import translationEN from './assets/locales/en-US/translation.json';
-import translationFR from './assets/locales/fr-FR/translation.json';
+import translationEN from '@assets/locales/en-US/translation.json';
+import translationFR from '@assets/locales/fr-FR/translation.json';
 
 export const supportedLanguages = [
 	'en',

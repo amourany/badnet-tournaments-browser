@@ -1,20 +1,19 @@
-import './App.css'
+import './App.css';
 import './i18n';
-import {createRouter, RouterProvider} from "@tanstack/react-router";
+import {createRouter, RouterProvider} from '@tanstack/react-router';
 import {routeTree} from './routeTree.gen';
-import {TournamentFiltersProvider} from "./providers/TournamentFiltersProvider.tsx";
+import {TournamentFiltersProvider} from '@providers/TournamentFiltersProvider.tsx';
 
-const basePath = import.meta.env['BASE_URL']
-const router = createRouter({basepath:basePath, routeTree})
+const basePath = import.meta.env['BASE_URL'];
+const router = createRouter({ basepath:basePath,
+	routeTree });
 
 window.addEventListener('vite:preloadError', () => {
-    window.location.reload()
-})
+	window.location.reload();
+});
 
-function App() {
-    return <TournamentFiltersProvider>
-        <RouterProvider router={router}/>
-    </TournamentFiltersProvider>
-}
+const App = () => <TournamentFiltersProvider>
+	<RouterProvider router={router}/>
+</TournamentFiltersProvider>;
 
-export default App
+export default App;

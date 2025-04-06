@@ -1,61 +1,55 @@
-import {useTranslation} from "react-i18next";
-import {TFunction} from "i18next";
+import {useTranslation} from 'react-i18next';
+import {TFunction} from 'i18next';
 
 export type FormatDate = {
-    formatDate: (date: Date) => string,
-    formatDateTime: (date: Date) => string,
-    formatDateTimeWithDay: (date: Date) => string,
-}
+	formatDate: (date: Date) => string,
+	formatDateTime: (date: Date) => string,
+	formatDateTimeWithDay: (date: Date) => string,
+};
 
-const formatDateTime = (t: TFunction<string, undefined>, date: Date) => {
-    return t('intlDate', {
-        val: date,
-        formatParams: {
-            val: {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
-            }
-        }
-    });
-}
+const formatDateTime = (t: TFunction<string, undefined>, date: Date) => t('intlDate', {
+	formatParams: {
+		val: {
+			day: 'numeric',
+			hour: 'numeric',
+			minute: 'numeric',
+			month: 'long',
+			year: 'numeric',
+		},
+	},
+	val: date,
+});
 
-const formatDate = (t: TFunction<string, undefined>, date: Date) => {
-    return t('intlDate', {
-        val: date,
-        formatParams: {
-            val: {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-            }
-        }
-    });
-}
+const formatDate = (t: TFunction<string, undefined>, date: Date) => t('intlDate', {
+	formatParams: {
+		val: {
+			day: 'numeric',
+			month: 'long',
+			year: 'numeric',
+		},
+	},
+	val: date,
+});
 
-const formatDateTimeWithDay = (t: TFunction<string, undefined>, date: Date) => {
-    return t('intlDate', {
-        val: date,
-        formatParams: {
-            val: {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
-                weekday: 'long',
-            }
-        }
-    });
-}
+const formatDateTimeWithDay = (t: TFunction<string, undefined>, date: Date) => t('intlDate', {
+	formatParams: {
+		val: {
+			day: 'numeric',
+			hour: 'numeric',
+			minute: 'numeric',
+			month: 'long',
+			weekday: 'long',
+			year: 'numeric',
+		},
+	},
+	val: date,
+});
 
 export const useDateFormat = (): FormatDate => {
-    const {t} = useTranslation('')
-    return {
-        formatDate: (date: Date) => formatDate(t, date),
-        formatDateTime: (date: Date) => formatDateTime(t, date),
-        formatDateTimeWithDay: (date: Date) => formatDateTimeWithDay(t, date),
-    }
-}
+	const { t } = useTranslation('');
+	return {
+		formatDate: (date: Date) => formatDate(t, date),
+		formatDateTime: (date: Date) => formatDateTime(t, date),
+		formatDateTimeWithDay: (date: Date) => formatDateTimeWithDay(t, date),
+	};
+};

@@ -1,7 +1,71 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "emitDeclarationOnly": true,
+    "declaration": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Paths */
+    "baseUrl": "./src",
+    "paths": {
+      "@api/*": ["api/*"],
+      "@assets/*": ["assets/*"],
+      "@components/*": ["components/*"],
+      "@config/*": ["config/*"],
+      "@effects/*": ["effects/*"],
+      "@hooks/*": ["hooks/*"],
+      "@jestConfig/*": ["jest/*"],
+      "@pages/*": ["pages/*"],
+      "@providers/*": ["providers/*"],
+      "@routes/*": ["routes/*"],
+      "@store/*": ["store/*"],
+      "@styles/*": ["styles/*"],
+      "@templates/*": ["templates/*"],
+      "@translations/*": ["translations/*"],
+      "@localTypes/*": ["types/*"],
+      "@utils/*": ["utils/*"]
+    },
+
+    /* Build */
+    "outDir": "dist",
+    "rootDir": ".",
+    "incremental": true,
+    "tsBuildInfoFile": "dist/.tsbuildinfo",
+    "composite": true,
+
+    "types": [
+      "node",
+      "react",
+      "react-dom",
+      "vite/client",
+      "postcss",
+      "vite-plugin-svgr/client",
+      "@testing-library/jest-dom"
+    ]
+  },
+  "include": [
+    "**/*",
+    "**/*translation.json",
+  ],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "public",
   ]
 }
