@@ -1,17 +1,19 @@
-import {Switch} from "@mantine/core";
-import {FiltersProps} from "../TournamentFilters.tsx";
-import {useTranslation} from "react-i18next";
+import {Switch} from '@mantine/core';
+import {useTranslation} from 'react-i18next';
+import {FiltersProps} from '@components/TournamentFilters/TournamentFilters.tsx';
 
-export const HideClosedTournamentsFilter = ({filters, onFiltersChange}: FiltersProps) => {
+export const HideClosedTournamentsFilter = ({ filters, onFiltersChange }: FiltersProps) => {
 
-    const {t} = useTranslation('', {keyPrefix: 'FILTERS'})
+	const { t } = useTranslation('', { keyPrefix: 'FILTERS' });
 
-    const onChange = (value: boolean) => {
-        onFiltersChange({...filters, hideClosedTournaments: value})
-    }
+	const onChange = (value: boolean) => {
+		onFiltersChange({ ...filters,
+			hideClosedTournaments: value });
+	};
 
-    return <Switch
-        onChange={(event) => onChange(event.currentTarget.checked)}
-        checked={filters.hideClosedTournaments}
-        label={t('HIDE_CLOSED_TOURNAMENTS')}/>
-}
+	return <Switch
+		checked={filters.hideClosedTournaments}
+		label={t('HIDE_CLOSED_TOURNAMENTS')}
+		onChange={(event) => onChange(event.currentTarget.checked)}
+	/>;
+};

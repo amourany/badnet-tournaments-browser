@@ -1,25 +1,31 @@
-import {Select} from "@mantine/core";
-import {FiltersProps} from "../TournamentFilters.tsx";
-import {useTranslation} from "react-i18next";
-import { REGIONS } from "../../../effects/regions.types.ts";
+import {Select} from '@mantine/core';
+import {useTranslation} from 'react-i18next';
+import {FiltersProps} from '@components/TournamentFilters/TournamentFilters.tsx';
+import {REGIONS} from '@effects/regions.types.ts';
 
-export const RegionFilter = ({filters, onFiltersChange}: FiltersProps) => {
+export const RegionFilter = ({ filters, onFiltersChange }: FiltersProps) => {
 
-    const {t} = useTranslation('', {keyPrefix: 'FILTERS'})
+	const { t } = useTranslation('', { keyPrefix: 'FILTERS' });
 
-    const onChange = (value: string | null) => {
-        onFiltersChange({...filters, region: value ?? ''})
-    }
+	const onChange = (value: string | null) => {
+		onFiltersChange({ ...filters,
+			region: value ?? '' });
+	};
 
-    const options = [{value: "", label: ""}, ...REGIONS.map(region => ({value: region.value, label: `${region.label} - ${region.value}`}))
-        .sort((a, b) => a.label.localeCompare(b.label))]
+	const options = [
+		{ label: '',
+			value: '' },
+		...REGIONS.map(region => ({ label: `${region.label} - ${region.value}`,
+			value: region.value }))
+			.sort((a, b) => a.label.localeCompare(b.label)),
+	];
 
-    return <Select
-        label={t('REGION')}
-        value={filters.region}
-        onChange={onChange}
-        data={options}
-        clearable
-        allowDeselect
-    />
-}
+	return <Select
+		allowDeselect
+		clearable
+		data={options}
+		label={t('REGION')}
+		onChange={onChange}
+		value={filters.region}
+	/>;
+};

@@ -1,35 +1,46 @@
-import Botminton from '../../assets/botminton.svg?react';
-import styles from './Header.module.css'
-import {IconAdjustments, IconBrandGithub, IconX} from "@tabler/icons-react";
-import {ActionIcon} from "@mantine/core";
-import {LanguageSwitcher} from "../LanguageSwitcher/LanguageSwitcher.tsx";
-import {useTranslation} from "react-i18next";
+import Botminton from '@assets/botminton.svg?react';
+import styles from './Header.module.css';
+import {IconAdjustments, IconBrandGithub, IconX} from '@tabler/icons-react';
+import {ActionIcon} from '@mantine/core';
+import {useTranslation} from 'react-i18next';
+import {LanguageSwitcher} from '@components/LanguageSwitcher/LanguageSwitcher.tsx';
 
 export type HeaderProps = {
-    navbarOpened: boolean,
-    toggleNavbar: () => void
-}
+	navbarOpened: boolean,
+	toggleNavbar: () => void
+};
 
-export const Header = ({navbarOpened, toggleNavbar}: HeaderProps) => {
+export const Header = ({ navbarOpened, toggleNavbar }: HeaderProps) => {
 
-    const {t} = useTranslation()
+	const { t } = useTranslation();
 
-    return <div className={styles.header}>
-        <ActionIcon onClick={toggleNavbar} hiddenFrom="lg" variant="transparent" color="black" size="xl"
-                    aria-label="Settings">
-            {navbarOpened ? <IconX/> : <IconAdjustments/>}
-        </ActionIcon>
-        <div className={styles.title}>
-            <Botminton className={styles.logo}/>
-            <label>{t("TITLE")}</label>
-        </div>
-        <div className={styles.icons}>
-            <ActionIcon component="a" href="https://github.com/amourany/badnet-tournaments-browser" variant="outline" color="black"
-                        target="_blank"
-                        aria-label="Github">
-                <IconBrandGithub/>
-            </ActionIcon>
-            <LanguageSwitcher/>
-        </div>
-    </div>
-}
+	return <div className={styles.header}>
+		<ActionIcon
+			aria-label="Settings"
+			color="black"
+			hiddenFrom="lg"
+			onClick={toggleNavbar}
+			size="xl"
+			variant="transparent"
+		>
+			{navbarOpened ? <IconX/> : <IconAdjustments/>}
+		</ActionIcon>
+		<div className={styles.title}>
+			<Botminton className={styles.logo}/>
+			<label>{t('TITLE')}</label>
+		</div>
+		<div className={styles.icons}>
+			<ActionIcon
+				aria-label="Github"
+				color="black"
+				component="a"
+				href="https://github.com/amourany/badnet-tournaments-browser"
+				target="_blank"
+				variant="outline"
+			>
+				<IconBrandGithub/>
+			</ActionIcon>
+			<LanguageSwitcher/>
+		</div>
+	</div>;
+};

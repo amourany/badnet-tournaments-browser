@@ -1,4 +1,4 @@
-import {createTheme, em, MantineColorsTuple} from "@mantine/core";
+import {createTheme, em, MantineColorsTuple} from '@mantine/core';
 
 // const paleBlue: MantineColorsTuple = [
 //     '#ecf4ff',
@@ -14,27 +14,27 @@ import {createTheme, em, MantineColorsTuple} from "@mantine/core";
 // ];
 
 const deepBlue: MantineColorsTuple = [
-    "#e5f3ff",
-    "#cde2ff",
-    "#9ac2ff",
-    "#64a0ff",
-    "#3884fe",
-    "#1d72fe",
-    "#0969ff",
-    "#0058e4",
-    "#004ecd",
-    "#0043b5"
+	'#e5f3ff',
+	'#cde2ff',
+	'#9ac2ff',
+	'#64a0ff',
+	'#3884fe',
+	'#1d72fe',
+	'#0969ff',
+	'#0058e4',
+	'#004ecd',
+	'#0043b5',
 ];
 
 export const theme = createTheme({
-    breakpoints: {
-        xs: em('360'),
-        sm: em('600'),
-        md: em('900'),
-        lg: em('1200'),
-        xl: em('1800'),
-    },
-    colors: {
-        custom: deepBlue,
-    }
+	breakpoints: {
+		lg: em('1200'),
+		md: em('900'),
+		sm: em('600'),
+		xl: em('1800'),
+		xs: em('360'),
+	},
+	colors: {
+		custom: deepBlue,
+	},
 });

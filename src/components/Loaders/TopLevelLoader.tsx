@@ -1,5 +1,7 @@
-import {Progress} from "@mantine/core";
+import {Progress} from '@mantine/core';
 
-export const TopLevelLoader = () => {
-    return <Progress size="sm" value={100} animated />;
-}
+export const TopLevelLoader = () => <Progress
+	animated
+	size="sm"
+	value={100}
+/>;

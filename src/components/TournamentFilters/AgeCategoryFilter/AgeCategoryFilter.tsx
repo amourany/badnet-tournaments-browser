@@ -1,22 +1,24 @@
-import {MultiSelect} from "@mantine/core";
-import {FiltersProps} from "../TournamentFilters.tsx";
-import {AGE_CATEGORIES} from "../../../effects/age-categories.types.ts";
-import {useTranslation} from "react-i18next";
+import {AGE_CATEGORIES} from '@effects/age-categories.types';
+import {MultiSelect} from '@mantine/core';
+import {useTranslation} from 'react-i18next';
+import {FiltersProps} from '@components/TournamentFilters/TournamentFilters.tsx';
 
-export const AgeCategoryFilter = ({filters, onFiltersChange}: FiltersProps) => {
+export const AgeCategoryFilter = ({ filters, onFiltersChange }: FiltersProps) => {
 
-    const {t} = useTranslation('', {keyPrefix: 'FILTERS'})
+	const { t } = useTranslation('', { keyPrefix: 'FILTERS' });
 
-    const onChange = (value: string[]) => {
-        onFiltersChange({...filters, ageCategories: value})
-    }
+	const onChange = (value: string[]) => {
+		onFiltersChange({ ...filters,
+			ageCategories: value });
+	};
 
-    const options = AGE_CATEGORIES.map(category => ({value: category.id, label: category.label}))
+	const options = AGE_CATEGORIES.map(category => ({ label: category.label,
+		value: category.id }));
 
-    return <MultiSelect
-        label={t('AGE_CATEGORY')}
-        value={filters.ageCategories}
-        onChange={onChange}
-        data={options}
-    />
-}
+	return <MultiSelect
+		data={options}
+		label={t('AGE_CATEGORY')}
+		onChange={onChange}
+		value={filters.ageCategories}
+	/>;
+};
