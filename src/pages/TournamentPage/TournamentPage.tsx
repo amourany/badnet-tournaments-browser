@@ -3,9 +3,9 @@ import styles from './TournamentPage.module.css';
 import {useDidUpdate, useInViewport} from '@mantine/hooks';
 import {TOURNAMENT_DATE, useFilters} from '@providers/TournamentFiltersProvider';
 import {FiltersOverview} from '@components/FiltersOverview/FiltersOverview';
-import {TournamentByRegistrationView} from '@pages/TournamentPage/TournamentByRegistrationView.tsx';
-import {TournamentByDateView} from '@pages/TournamentPage/TournamentByDateView.tsx';
-import {useFetchTournaments} from '@effects/badnet/tournaments.actions.ts';
+import {TournamentByRegistrationView} from '@pages/TournamentPage/TournamentByRegistrationView';
+import {TournamentByDateView} from '@pages/TournamentPage/TournamentByDateView';
+import {useFetchTournaments} from '@effects/badnet/tournaments.actions';
 
 export const TournamentPage = () => {
 

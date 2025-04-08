@@ -2,9 +2,9 @@ import {Card} from '@mantine/core';
 import styles from './TournamentCard.module.css';
 import dayjs from 'dayjs';
 import {IconCalendarMonth, IconCheckbox, IconMapPin, IconSquareX, IconStopwatch} from '@tabler/icons-react';
-import {useTranslation} from 'react-i18next';
 import {Tournament} from '@effects/badnet/tournament.types';
 import {useDateFormat} from '@hooks/useFormatDate.ts';
+import {useTranslation} from '@hooks/useTranslation';
 
 export type TournamentCardProps = {
 	tournament: Tournament
@@ -13,7 +13,7 @@ export type TournamentCardProps = {
 export const TournamentCard = ({ tournament }: TournamentCardProps) => {
 
 	const { formatDate, formatDateTimeWithDay } = useDateFormat();
-	const { t } = useTranslation('', { keyPrefix: 'TOURNAMENT_CARD' });
+	const { t } = useTranslation({ keyPrefix: 'TOURNAMENT_CARD' });
 
 	const firstDay = dayjs.unix(tournament.firstDay);
 	const lastDay = dayjs.unix(tournament.lastDay);

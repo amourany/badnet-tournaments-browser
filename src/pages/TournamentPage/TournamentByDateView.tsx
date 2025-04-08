@@ -2,8 +2,8 @@ import dayjs from 'dayjs';
 import {useTranslation} from 'react-i18next';
 import styles from './TournamentPage.module.css';
 import {Tournament} from '@effects/badnet/tournament.types';
-import {useDateFormat} from '@hooks/useFormatDate.ts';
-import {TournamentGroup} from '@components/TournamentGroup/TournamentGroup.tsx';
+import {useDateFormat} from '@hooks/useFormatDate';
+import {TournamentGroup} from '@components/TournamentGroup/TournamentGroup';
 
 export type TournamentViewProps = {
 	tournaments: Tournament[]

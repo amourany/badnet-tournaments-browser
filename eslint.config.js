@@ -7,6 +7,7 @@ import reactHooksPlugin from "eslint-plugin-react-hooks";
 import stylistic from '@stylistic/eslint-plugin';
 import * as importPlugin from 'eslint-plugin-import';
 import sortKeysFix from 'eslint-plugin-sort-keys-fix';
+import pluginJest from 'eslint-plugin-jest';
 
 // config
 
@@ -28,6 +29,11 @@ const config = [
         ],
     },
 
+    {
+        // update this to match your test files
+        files: ['**/*.spec.ts*', '**/*.test.ts*'],
+        plugins: { jest: pluginJest },
+    },
     // TypeScript/JavaScript configuration
     {
         files: ['**/*.{js,jsx,ts,tsx,mjs,cjs}'],

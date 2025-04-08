@@ -2,8 +2,8 @@ import Botminton from '@assets/botminton.svg?react';
 import styles from './Header.module.css';
 import {IconAdjustments, IconBrandGithub, IconX} from '@tabler/icons-react';
 import {ActionIcon} from '@mantine/core';
-import {useTranslation} from 'react-i18next';
-import {LanguageSwitcher} from '@components/LanguageSwitcher/LanguageSwitcher.tsx';
+import {LanguageSwitcher} from '@components/LanguageSwitcher/LanguageSwitcher';
+import {useTranslation} from '@hooks/useTranslation';
 
 export type HeaderProps = {
 	navbarOpened: boolean,

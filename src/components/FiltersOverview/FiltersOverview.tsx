@@ -1,10 +1,10 @@
 import {Pill} from '@mantine/core';
 import styles from './FiltersOverview.module.css';
-import {useTranslation} from 'react-i18next';
-import {useFilters} from '@providers/TournamentFiltersProvider.tsx';
+import {useFilters} from '@providers/TournamentFiltersProvider';
+import {useTranslation} from '@hooks/useTranslation';
 
 export const FiltersOverview = () => {
-	const { t } = useTranslation('', { keyPrefix: 'FILTERS.OVERVIEW' });
+	const { t } = useTranslation({ keyPrefix: 'FILTERS.OVERVIEW' });
 	const { filters, setFilters } = useFilters();
 	const isRegionFilterActive = filters.region.length > 0;
 	const isSearchFilterActive = filters.search.length > 0;

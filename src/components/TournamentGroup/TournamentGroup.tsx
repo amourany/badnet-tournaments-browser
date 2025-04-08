@@ -1,7 +1,7 @@
 import {Flex} from '@mantine/core';
 import styles from './TournamentGroup.module.css';
 import {Tournament} from '@effects/badnet/tournament.types';
-import {TournamentCard} from '@components/TournamentCard/TournamentCard.tsx';
+import {TournamentCard} from '@components/TournamentCard/TournamentCard';
 
 export type TournamentGroupProps = {
 	tournaments: Tournament[],

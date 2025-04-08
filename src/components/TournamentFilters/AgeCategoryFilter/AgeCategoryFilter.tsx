@@ -1,7 +1,7 @@
 import {AGE_CATEGORIES} from '@effects/age-categories.types';
 import {MultiSelect} from '@mantine/core';
 import {useTranslation} from 'react-i18next';
-import {FiltersProps} from '@components/TournamentFilters/TournamentFilters.tsx';
+import {FiltersProps} from '@components/TournamentFilters/TournamentFilters';
 
 export const AgeCategoryFilter = ({ filters, onFiltersChange }: FiltersProps) => {
 

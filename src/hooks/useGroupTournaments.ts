@@ -1,6 +1,6 @@
 import {Tournament} from '@effects/badnet/tournament.types';
 import dayjs from 'dayjs';
-import {Filters, TOURNAMENT_DATE, useFilters} from "@providers/TournamentFiltersProvider.tsx";
+import {Filters, TOURNAMENT_DATE, useFilters} from '@providers/TournamentFiltersProvider';
 
 const groupTournaments = (tournaments: Tournament[], filters: Filters) => {
 	const groupedTournaments = tournaments.reduce((acc, event) => {

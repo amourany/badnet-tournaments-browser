@@ -2,11 +2,11 @@ import dayjs from 'dayjs';
 import {Accordion} from '@mantine/core';
 import styles from './TournamentPage.module.css';
 import {useTranslation} from 'react-i18next';
-import {Tournament} from '@effects/badnet/tournament.types.ts';
-import {useDateFormat} from '@hooks/useFormatDate.ts';
-import {useFilters} from '@providers/TournamentFiltersProvider.tsx';
-import {TournamentGroup} from '@components/TournamentGroup/TournamentGroup.tsx';
-import {TournamentViewProps} from '@pages/TournamentPage/TournamentByDateView.tsx';
+import {Tournament} from '@effects/badnet/tournament.types';
+import {useDateFormat} from '@hooks/useFormatDate';
+import {useFilters} from '@providers/TournamentFiltersProvider';
+import {TournamentGroup} from '@components/TournamentGroup/TournamentGroup';
+import {TournamentViewProps} from '@pages/TournamentPage/TournamentByDateView';
 
 const TOURNAMENTS_OPENED = 'OPENED';
 const TOURNAMENTS_CLOSED = 'CLOSED';

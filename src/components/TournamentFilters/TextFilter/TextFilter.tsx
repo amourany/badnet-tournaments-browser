@@ -2,7 +2,7 @@ import {CloseButton, TextInput} from '@mantine/core';
 import {useEffect, useState} from 'react';
 import {useDebouncedValue} from '@mantine/hooks';
 import {useTranslation} from 'react-i18next';
-import {FiltersProps} from '@components/TournamentFilters/TournamentFilters.tsx';
+import {FiltersProps} from '@components/TournamentFilters/TournamentFilters';
 
 export const TextFilter = ({ filters, onFiltersChange }: FiltersProps) => {
 

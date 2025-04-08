@@ -3,8 +3,8 @@ import styles from './Layout.module.css';
 import {PropsWithChildren} from 'react';
 import {useDisclosure, useMediaQuery} from '@mantine/hooks';
 import {useIsFetching} from '@tanstack/react-query';
-import {Header} from '@components/Header/Header.tsx';
-import {TopLevelLoader} from '@components/Loaders/TopLevelLoader.tsx';
+import {Header} from '@components/Header/Header';
+import {TopLevelLoader} from '@components/Loaders/TopLevelLoader';
 import {TournamentFilters} from '@components/TournamentFilters/TournamentFilters';
 
 export const Layout = ({ children }: PropsWithChildren) => {

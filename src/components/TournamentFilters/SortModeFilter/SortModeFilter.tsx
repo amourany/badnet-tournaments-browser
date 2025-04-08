@@ -3,7 +3,7 @@ import {useEffect} from 'react';
 import {SegmentedControl, Text, useMantineTheme} from '@mantine/core';
 import {useTranslation} from 'react-i18next';
 import {REGISTRATION_DATE, SortMode, TOURNAMENT_DATE} from '@providers/TournamentFiltersProvider';
-import {FiltersProps} from '@components/TournamentFilters/TournamentFilters.tsx';
+import {FiltersProps} from '@components/TournamentFilters/TournamentFilters';
 
 export const SortModeFilter = ({ filters, onFiltersChange }: FiltersProps) => {
 	const { t } = useTranslation('', { keyPrefix: 'FILTERS.SORT_MODE' });

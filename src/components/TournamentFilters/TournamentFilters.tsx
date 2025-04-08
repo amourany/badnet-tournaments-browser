@@ -1,13 +1,13 @@
 import {ScrollArea, Stack, UnstyledButton} from '@mantine/core';
-import {RegionFilter} from '@components/TournamentFilters/RegionFilter/RegionFilter.tsx';
+import {RegionFilter} from '@components/TournamentFilters/RegionFilter/RegionFilter';
 import {Filters, useFilters} from '@providers/TournamentFiltersProvider';
 import {useTranslation} from 'react-i18next';
 import styles from './TournamentFilters.module.css';
-import {HideOpenedTournamentsFilter} from '@components/TournamentFilters/HideOpenedTournamentsFilter/HideOpenedTournamentsFilter.tsx';
-import {HideClosedTournamentsFilter} from '@components/TournamentFilters/HideClosedTournamentsFilter/HideClosedTournamentsFilter.tsx';
-import {SortModeFilter} from '@components/TournamentFilters/SortModeFilter/SortModeFilter.tsx';
-import {TextFilter} from '@components/TournamentFilters/TextFilter/TextFilter.tsx';
-import {AgeCategoryFilter} from '@components/TournamentFilters/AgeCategoryFilter/AgeCategoryFilter.tsx';
+import {HideOpenedTournamentsFilter} from '@components/TournamentFilters/HideOpenedTournamentsFilter/HideOpenedTournamentsFilter';
+import {HideClosedTournamentsFilter} from '@components/TournamentFilters/HideClosedTournamentsFilter/HideClosedTournamentsFilter';
+import {SortModeFilter} from '@components/TournamentFilters/SortModeFilter/SortModeFilter';
+import {TextFilter} from '@components/TournamentFilters/TextFilter/TextFilter';
+import {AgeCategoryFilter} from '@components/TournamentFilters/AgeCategoryFilter/AgeCategoryFilter';
 
 export type FiltersProps = {
 	filters: Filters,

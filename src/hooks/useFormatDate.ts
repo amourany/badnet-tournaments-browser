@@ -1,5 +1,5 @@
-import {useTranslation} from 'react-i18next';
 import {TFunction} from 'i18next';
+import {useTranslation} from '@hooks/useTranslation';
 
 export type FormatDate = {
 	formatDate: (date: Date) => string,
@@ -46,7 +46,7 @@ const formatDateTimeWithDay = (t: TFunction<string, undefined>, date: Date) => t
 });
 
 export const useDateFormat = (): FormatDate => {
-	const { t } = useTranslation('');
+	const { t } = useTranslation();
 	return {
 		formatDate: (date: Date) => formatDate(t, date),
 		formatDateTime: (date: Date) => formatDateTime(t, date),

@@ -9,8 +9,8 @@ export default defineConfig({
 	base: '/badnet-tournaments-browser',
 	plugins: [
 		TanStackRouterVite({
-			routesDirectory: './src/routes',
 			generatedRouteTree: './src/routeTree.gen.ts',
+			routesDirectory: './src/routes',
 		}),
 		react(),
 		svgr(),
@@ -24,6 +24,7 @@ export default defineConfig({
 			'@config': resolve(__dirname, './src/config'),
 			'@effects': resolve(__dirname, './src/effects'),
 			'@hooks': resolve(__dirname, './src/hooks'),
+			'@jestConfig': resolve(__dirname, './jest'),
 			'@pages': resolve(__dirname, './src/pages'),
 			'@providers': resolve(__dirname, './src/providers'),
 			'@routes': resolve(__dirname, './src/routes'),
@@ -35,5 +36,4 @@ export default defineConfig({
 			'@utils': resolve(__dirname, './src/utils'),
 		},
 	},
-	// root: 'src',
 });
