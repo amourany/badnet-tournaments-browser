@@ -1,4 +1,5 @@
-import {createContext, PropsWithChildren, useContext, useState} from 'react';
+import { useLocalStorage } from '@mantine/hooks';
+import { PropsWithChildren, createContext, useContext, useMemo } from 'react';
 
 export const TOURNAMENT_DATE = 'tournament';
 export const REGISTRATION_DATE = 'registration';
@@ -46,18 +47,19 @@ export const TournamentFiltersProvider = ({ children }: PropsWithChildren) => {
 	const [
 		filters,
 		setFilters,
-	] = useState<Filters>(initialFilters);
-	const [
-		isDefaultFilters,
-		setIsDefaultFilters,
-	] = useState<boolean>(true);
+	] = useLocalStorage<Filters>({
+		defaultValue: initialFilters,
+		key: "badnet-tournaments-browser/filters/v1"
+	});
+	const isDefaultFilters = useMemo(
+		() => JSON.stringify(filters) === JSON.stringify(initialFilters),
+		[ filters ],
+	);
 	const resetFilters = () => {
 		setFilters(initialFilters);
-		setIsDefaultFilters(true);
 	};
 	const onFiltersChange = (filters: Filters) => {
 		setFilters(filters);
-		setIsDefaultFilters(false);
 	};
 
 	return <filtersContext.Provider value={{ filters,
